@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.0 0.0% 100.0%;
+    --foreground: 0.0 0.0% 0.0%;
+    --muted: 23.7 100.0% 63.3%;
+    --muted-foreground: 0.0 0.0% 100.0%;
+    --popover: 0.0 0.0% 100.0%;
+    --popover-foreground: 0.0 0.0% 0.0%;
+    --border: 23.4 100.0% 63.3%;
+    --input: 23.4 100.0% 63.3%;
+    --card: 0.0 0.0% 100.0%;
+    --card-foreground: 0.0 0.0% 0.0%;
+    --primary: 0.0 100.0% 50.0%;
+    --primary-foreground: 0.0 0.0% 100.0%;
+    --secondary: 23.7 100.0% 63.3%;
+    --secondary-foreground: 0.0 0.0% 0.0%;
+    --accent: 23.4 100.0% 63.3%;
+    --accent-foreground: 0.0 0.0% 0.0%;
+    --destructive: 0.0 100.0% 50.0%;
+    --destructive-foreground: 0.0 0.0% 100.0%;
+    --ring: 23.4 100.0% 63.3%;
+    --radius: 0.5rem;
+    --sidebar-background: 0.0 0.0% 100.0%;
+    --sidebar-foreground: 23.4 100.0% 63.3%;
+    --sidebar-primary: 0.0 100.0% 50.0%;
+    --sidebar-primary-foreground: 0.0 0.0% 100.0%;
+    --sidebar-accent: 23.7 100.0% 63.3%;
+    --sidebar-accent-foreground: 0.0 0.0% 0.0%;
+    --sidebar-border: 23.4 100.0% 63.3%;
+    --sidebar-ring: 0.0 100.0% 50.0%;
+  }
+  .no-scrollbar::-webkit-scrollbar{
+    width: 0px;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .screen {
+    @apply max-w-[1200px] mx-auto;
+  }
+
+  .nav-link-home {
+    @apply text-primary rounded-full px-3 flex py-2 gap-1 hover:bg-primary/10 items-center;
+  }
+
+  .nav-link-home.active {
+    @apply bg-primary hover:scale-[0.98] items-center text-white;
+  }
+}
