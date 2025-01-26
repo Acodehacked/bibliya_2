@@ -20,7 +20,7 @@ export default function DashboardLayout({
 }: PropsWithChildren<{ header?: ReactNode,title:string }>) {
     const user = usePage().props.auth.user;
     return <AppTheme >
-        <CssBaseline enableColorScheme />
+        <CssBaseline />
         <Box sx={{ display: 'flex' }}>
             <SideMenu user={user} />
             <AppNavbar title={title} user={user} />
