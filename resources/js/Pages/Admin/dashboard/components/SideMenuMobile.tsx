@@ -11,6 +11,7 @@ import MenuButton from './MenuButton';
 import MenuContent from './MenuContent';
 import CardAlert from './CardAlert';
 import { User } from '@/types';
+import { Link } from '@inertiajs/react';
 
 interface SideMenuMobileProps {
   open: boolean | undefined;
@@ -18,7 +19,7 @@ interface SideMenuMobileProps {
   user: User
 }
 
-export default function SideMenuMobile({ open, toggleDrawer,user }: SideMenuMobileProps) {
+export default function SideMenuMobile({ open, toggleDrawer, user }: SideMenuMobileProps) {
   return (
     <Drawer
       anchor="right"
@@ -45,17 +46,18 @@ export default function SideMenuMobile({ open, toggleDrawer,user }: SideMenuMobi
           >
             <Avatar
               sizes="small"
-              alt="Riley Carter"
+              alt={user.name}
+              className='p-2'
               src="/static/images/avatar/7.jpg"
-              sx={{ width: 24, height: 24 }}
+              sx={{ width: 30, height: 30 }}
             />
             <Typography component="p" variant="h6">
-              Riley Carter
+              {user.name}
             </Typography>
           </Stack>
-          <MenuButton showBadge>
+          {/* <MenuButton showBadge>
             <NotificationsRoundedIcon />
-          </MenuButton>
+          </MenuButton> */}
         </Stack>
         <Divider />
         <Stack sx={{ flexGrow: 1 }}>
@@ -64,9 +66,11 @@ export default function SideMenuMobile({ open, toggleDrawer,user }: SideMenuMobi
         </Stack>
         <CardAlert />
         <Stack sx={{ p: 2 }}>
-          <Button variant="outlined" fullWidth startIcon={<LogoutRoundedIcon />}>
-            Logout
-          </Button>
+          <Link href='/admin/logout ' method='post'>
+            <Button variant="outlined" fullWidth startIcon={<LogoutRoundedIcon />}>
+              Logout
+            </Button>
+          </Link>
         </Stack>
       </Stack>
     </Drawer>

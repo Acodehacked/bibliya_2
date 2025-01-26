@@ -23,6 +23,8 @@ class Publisher extends Model
      */
     protected $fillable = [
         'name',
+        'address',
+        'logo',
     ];
 
     /**
@@ -31,5 +33,9 @@ class Publisher extends Model
     public function videoBooks()
     {
         return $this->hasMany(VideoBook::class, 'publisher_id');
+    }
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'publisher_id');
     }
 }

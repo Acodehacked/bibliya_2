@@ -18,12 +18,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    public function getRedirectRoute()
+    {
+        return match ((int)$this->roles->first()->id) {
+            1 => 'user.dashboard',
+            2 => 'admin.dashboard',
+            // ...
+        };
+    }
     protected $fillable = [
         'name',
         'email',
         'username',
         'password',
-];
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -47,7 +55,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function profile(){
+    public function profile()
+    {
         return $this->hasOne(Profile::class);
     }
 }

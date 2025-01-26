@@ -16,12 +16,12 @@ export default function Welcome({
                 {/* <UserNavbar user={auth.user} /> */}
                 <div className='screen' >
                     <HomeAppNavbar />
-                    <div className="screen">
+                    <div className="screen px-5">
                         <h1 className="text-3xl font-bold text-gray-800 mb-6">Welcome Back!</h1>
                     </div>
                     <div className="min-h-screen">
                         <main className="px-6 py-8">
-                            <div className="screen grid grid-cols-2 pb-5">
+                            <div className="screen grid md:grid-cols-2 grid-cols-1 pb-5">
                                 <Card2
                                     title="Daily Bread"
                                     subtitle="Season 2"

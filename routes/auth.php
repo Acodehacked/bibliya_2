@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\QuestionBankController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -18,7 +20,7 @@ Route::middleware('guest')->group(function () {
     //     ->name('register');
 
     // Route::post('register', [RegisteredUserController::class, 'store']);
-
+    Route::permanentRedirect('/admin','/admin/login');
     Route::get('admin/login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
@@ -38,11 +40,13 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::permanentRedirect('/admin/login','/dashboard');
+    // Route::permanentRedirect('/admin/login','/dashboard');
     Route::get('/dashboard', function () {
         return Inertia::render('Admin/dashboard/Dashboard');
     })->name('admin.dashboard');
 
+    Route::get('/QuestionBank/{language}', [QuestionBankController::class, 'index']);
+    Route::get('/Books/{language}', [BookController::class, 'index']);
 
 
     Route::get('/categories', [QuestionCategoryController::class, 'index']);

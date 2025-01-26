@@ -29,7 +29,7 @@ const Toolbar = styled(MuiToolbar)({
   },
 });
 
-export default function AppNavbar({user,title}:{user:User,title:string}) {
+export default function AppNavbar({ user, title }: { user: User, title: string }) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -45,6 +45,7 @@ export default function AppNavbar({user,title}:{user:User,title:string}) {
         bgcolor: 'background.paper',
         backgroundImage: 'none',
         borderBottom: '1px solid',
+        zIndex: 39,
         borderColor: 'divider',
         top: 'var(--template-frame-height, 0px)',
       }}
@@ -55,6 +56,7 @@ export default function AppNavbar({user,title}:{user:User,title:string}) {
           sx={{
             alignItems: 'center',
             flexGrow: 1,
+            zIndex: 39,
             width: '100%',
             gap: 1,
           }}

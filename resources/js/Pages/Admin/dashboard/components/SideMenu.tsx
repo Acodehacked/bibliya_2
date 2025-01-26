@@ -30,6 +30,7 @@ export default function SideMenu({user}:{user:User}) {
     <Drawer
       variant="permanent"
       sx={{
+        zIndex: 39,
         display: { xs: 'none', md: 'block' },
         [`& .${drawerClasses.paper}`]: {
           backgroundColor: 'background.paper',
@@ -47,6 +48,7 @@ export default function SideMenu({user}:{user:User}) {
       >
         <img src={'/storage/bibliya_logo.png'} className='w-[40px] h-[40px]' />
         <h3 className='font-bold text-xl'>BIBLIYA</h3>
+        <p className='text-sm px-2 py-1 border-[0.01rem] border-zinc-400 bg-zinc-100 rounded-md'>Beta</p>
       </Box>
       <Divider />
       <Box

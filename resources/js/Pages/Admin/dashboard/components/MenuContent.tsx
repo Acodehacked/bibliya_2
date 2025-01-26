@@ -12,7 +12,7 @@ import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
-import { BookIcon, DotIcon, ExternalLink, FileQuestionIcon, HomeIcon, Link2Icon, MailQuestion } from 'lucide-react';
+import { BookIcon, ChevronDown, DotIcon, ExternalLink, FileQuestionIcon, HomeIcon, Link2Icon, MailQuestion } from 'lucide-react';
 import { link } from 'fs';
 import { AnimatePresence,motion } from 'motion/react';
 import { cn } from '@/lib/utlis';
@@ -43,11 +43,11 @@ const mainListItems = [
     sub: [
       {
         title: 'Bible Books',
-        link: '/QuestionBank'
+        link: '/QuestionBank/Bible'
       },
       {
         title: 'Other Books',
-        link: '/QuestionBank'
+        link: '/QuestionBank/Other'
       }
     ],
     icon: <FileQuestionIcon size={19} />
@@ -70,20 +70,21 @@ export default function MenuContent() {
         {mainListItems.map((item, index) => (
           <div  key={index} className='cursor-pointer relative'>
             <div className={cn('absolute top-0 left-[-43px] w-10 h-full bg-primary-500 rounded-md',selectedIndex==index?'':'hidden')}></div>
-            {item.link ? <Link href={item.link ?? 'void(0)'} onClick={()=>selectedIndex == index?setselectedIndex(-1):setselectedIndex(index)} className={cn('flex p-2 gap-2 items-center',pageurl.url==item.link?'bg-zinc-200 text-primary-600 rounded-md':'')}>
+            {item.link && pageurl.url!=item.link ? <Link href={item.link ?? 'void(0)'} onClick={()=>selectedIndex == index?setselectedIndex(-1):setselectedIndex(index)} className={cn('flex p-2 gap-2 items-center',pageurl.url==item.link?'bg-zinc-100 text-primary-600 rounded-md':'')}>
               <div >{item.icon}</div>
               <p>{item.text}</p>
-            </Link> : <div onClick={()=>selectedIndex == index?setselectedIndex(-1):setselectedIndex(index)} className={cn('flex p-2 gap-2 items-center',pageurl.url==item.link?'bg-zinc-200 text-primary-600 rounded-md':'')}>
+            </Link> : <div onClick={()=>selectedIndex == index?setselectedIndex(-1):setselectedIndex(index)} className={cn('flex select-none p-2 gap-2 items-center',pageurl.url==item.link?'bg-zinc-200 text-primary-600 rounded-md':'')}>
               <div >{item.icon}</div>
-              <p>{item.text}</p>  
+              <p>{item.text}</p> 
+              {item.sub && <ChevronDown className='ms-auto' size={16} />}
             </div>}
             <AnimatePresence>
-              {selectedIndex == index && <motion.div initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} className='bg-zinc-200 overflow-hidden flex flex-col gap-0  '>
+              {item.sub && selectedIndex == index && <motion.div initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} className='bg-zinc-50 border-[0.05rem] border-zinc-300 rounded-md overflow-hidden flex flex-col gap-0  '>
                 {item.sub?.map((subitem, sindex) => {
-                  return <div key={sindex} className='flex ps-5 p-1 gap-2 items-center'>
+                  return <Link href={subitem.link} key={sindex} className='flex hover:bg-zinc-200 select-none ps-5 p-1 gap-2 items-center'>
                     <ExternalLink size={16} />
-                    <ListItemText primary={subitem.title} />
-                  </div>;
+                    <p className='text-sm py-1' >{subitem.title}</p>
+                  </Link>;
                 })}
               </motion.div>}
             </AnimatePresence>

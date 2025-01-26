@@ -37,4 +37,12 @@ class Book extends Model
     {
         return $this->hasMany(Verse::class, 'book_id');
     }
+    public function questions()
+    {
+        return $this->hasMany(Question::class,'book_id');
+    }
+    public function publisher()
+    {
+        return $this->belongsTo(Publisher::class, 'publisher_id');
+    }
 }

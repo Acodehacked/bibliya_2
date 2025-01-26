@@ -37,10 +37,8 @@ export default function Dashboard(props: { disableCustomTheme?: boolean }) {
   };
   return (
     <DashboardLayout title='Dashboard'>
-      <Header title='title' list={['Dashboard', 'Overview']} />
-      <Typography component="h2" variant="h6" className='w-full' sx={{ textAlign: 'start', mb: 2 }}>
-        Overview
-      </Typography>
+      <Header title='Dashboard' list={['Dashboard', 'Overview']} />
+      
       <Button onClick={handleClick}>Confetti 🎉</Button>
 
     </DashboardLayout>

@@ -15,6 +15,6 @@ Route::get('/', function () {
 
     // return view('pages.show', compact('page', 'meta'));
     return Inertia::render('Welcome');
-})->name('home');
+})->name('user.dashboard');
 
 require __DIR__ . '/auth.php';

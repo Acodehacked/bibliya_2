@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('publishers', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('address')->nullable();
+            $table->text('logo')->nullable();
             $table->timestamps();
         });
     }

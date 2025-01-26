@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id(); // Primary key
+            $table->foreignId('book_id')->constrained('books')->noActionOnDelete()->nullable(); 
+            $table->integer('chapter')->nullable(); // Chapter number
             $table->foreignId('question_categories_id')->constrained('question_categories')->noActionOnDelete()->nullable(); // Question category (e.g., Bible, General)
             $table->string('language'); // Language of the question (e.g., Malayalam, English)
             $table->text('question_text'); // The actual question text

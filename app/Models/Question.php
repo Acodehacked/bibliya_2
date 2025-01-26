@@ -49,7 +49,10 @@ class Question extends Model
     {
         return $this->belongsTo(QuestionCategory::class);
     }
-
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
     public function difficulty()
     {
         return $this->belongsTo(Difficulty::class);
