@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
+            $table->string('user_cc');
+            $table->integer('trophies')->default(0);
+            $table->integer('level')->default(1); // Level the user is currently at
+            $table->integer('experience_points')->default(0);
+            $table->string('phone');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

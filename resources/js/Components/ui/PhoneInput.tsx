@@ -1,4 +1,3 @@
-import CountryCodes from '@/../../../../../Bibliya/resources/js/Constants/CountryCodes'
 type CountryCode = {
   name: string,
   dial_code: string,

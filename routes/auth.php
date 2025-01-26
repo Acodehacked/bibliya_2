@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\QuestionCategoryController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -37,9 +38,17 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard',function(){
+    Route::get('/dashboard', function () {
         return Inertia::render('Admin/dashboard/Dashboard');
     })->name('admin.dashboard');
+
+
+
+    Route::get('/categories', [QuestionCategoryController::class, 'index']);
+    Route::post('/categories', [QuestionCategoryController::class, 'store']);
+    Route::get('/categories/{id}', [QuestionCategoryController::class, 'show']);
+    Route::put('/categories/{id}', [QuestionCategoryController::class, 'update']);
+    Route::delete('/categories/{id}', [QuestionCategoryController::class, 'destroy']);
     // Route::get('verify-email', EmailVerificationPromptController::class)
     //     ->name('verification.notice');
 

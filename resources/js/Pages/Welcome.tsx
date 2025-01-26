@@ -11,7 +11,7 @@ export default function Welcome({
 
     return (
         <>
-            <Head title="HOME" />
+            <Head title="Home" />
             <main className='pt-[100px]'>
                 {/* <UserNavbar user={auth.user} /> */}
                 <div className='screen' >

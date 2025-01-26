@@ -10,6 +10,7 @@ import ListItemIcon, { listItemIconClasses } from '@mui/material/ListItemIcon';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import MenuButton from './MenuButton';
+import { Link } from '@inertiajs/react';
 
 const MenuItem = styled(MuiMenuItem)({
   margin: '2px 0',
@@ -59,20 +60,17 @@ export default function OptionsMenu() {
         <MenuItem onClick={handleClose}>Add another account</MenuItem>
         <MenuItem onClick={handleClose}>Settings</MenuItem>
         <Divider />
-        <MenuItem
+        <Link
+          method='post'
+         className='flex px-2 py-1'
+          href='/admin/logout'
           onClick={handleClose}
-          sx={{
-            [`& .${listItemIconClasses.root}`]: {
-              ml: 'auto',
-              minWidth: 0,
-            },
-          }}
         >
           <ListItemText>Logout</ListItemText>
           <ListItemIcon>
             <LogoutRoundedIcon fontSize="small" />
           </ListItemIcon>
-        </MenuItem>
+        </Link>
       </Menu>
     </React.Fragment>
   );

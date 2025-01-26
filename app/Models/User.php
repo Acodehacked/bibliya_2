@@ -21,8 +21,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
-    ];
+];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,5 +46,8 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 }
