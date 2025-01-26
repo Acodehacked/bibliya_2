@@ -1,4 +1,4 @@
-import { cn } from "@/../../../../../Bibliya/resources/js/lib/utils"
+import { cn } from "@/lib/utlis"
 
 function Skeleton({
   className,
