@@ -38,6 +38,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::permanentRedirect('/admin/login','/dashboard');
     Route::get('/dashboard', function () {
         return Inertia::render('Admin/dashboard/Dashboard');
     })->name('admin.dashboard');

@@ -12,7 +12,7 @@ function HomeAppNavbar() {
                 </div>
             </div>
             <div className="flex w-full justify-end p-3 py-2 items-center md:gap-[30px]">
-                <div className="flex items-center gap-[30px]">
+                <div className="sm:flex hidden items-center gap-[30px]">
                     <a href="#" className="text-gray-600 hover:text-gray-800 rounded-xl bg-blue-200 px-3 py-1">Home</a>
                     <a href="#" className="text-gray-600 hover:text-gray-800">Notice Board</a>
                     <a href="#" className="text-gray-600 hover:text-gray-800">Install for Mobile</a>
