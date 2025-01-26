@@ -17,33 +17,31 @@ export default function DashboardLayout({
     header,
     children,
     title
-}: PropsWithChildren<{ header?: ReactNode,title:string }>) {
+}: PropsWithChildren<{ header?: ReactNode, title: string }>) {
     const user = usePage().props.auth.user;
-    return <AppTheme >
-        <CssBaseline />
-        <Box sx={{ display: 'flex' }}>
-            <SideMenu user={user} />
-            <AppNavbar title={title} user={user} />
-            {/* Main content */}
-            <Box
-                component="main"
-                sx={(theme) => ({
-                    flexGrow: 1,
-                    overflow: 'auto',
-                })}
+    return <Box sx={{ display: 'flex' }}>
+        <SideMenu user={user} />
+        <AppNavbar title={title} user={user} />
+        {/* Main content */}
+        <Box
+            component="main"
+            sx={() => ({
+                flexGrow: 1,
+                overflow: 'auto',
+            })}
+        >
+            <Stack
+                spacing={2}
+                sx={{
+                    alignItems: 'center',
+                    mx: 3,
+                    pb: 5,
+                    mt: { xs: 8, md: 0 },
+                }}
             >
-                <Stack
-                    spacing={2}
-                    sx={{
-                        alignItems: 'center',
-                        mx: 3,
-                        pb: 5,
-                        mt: { xs: 8, md: 0 },
-                    }}
-                >
-                    {children}
-                </Stack>
-            </Box>
+                {children}
+            </Stack>
         </Box>
-    </AppTheme>
+    </Box>
+
 }
