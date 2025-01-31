@@ -48,6 +48,7 @@
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "cmdk": "^1.0.4",
+        "date-fns": "^4.1.0",
         "dayjs": "^1.11.13",
         "framer-motion": "^11.11.17",
         "lucide-react": "^0.460.0",

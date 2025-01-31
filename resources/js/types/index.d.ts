@@ -54,7 +54,13 @@ export interface Difficulty {
     updated_at: string; // Updated at timestamp
 }
 
-
+export interface LaravelPaginationMeta {
+    current_page: number,
+    from: number,
+    per_page: number,
+    to: number,
+    total: number
+}
 export interface Book {
     id: number; // Primary key
     eng_name: string; // English name of the book

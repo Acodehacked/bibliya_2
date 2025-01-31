@@ -65,4 +65,22 @@
   .sidebar{
     @apply z-10;
   } 
+  .active-card{
+    @apply bg-green-50 p-1 border-[0.01rem] border-green-600 text-green-600 rounded-md;
+  }
+  .inactive-card{
+    @apply bg-red-50 p-1 border-[0.01rem] border-red-600 text-red-600 rounded-md;
+  }
+  .cardbtn{
+    @apply px-2 py-1 rounded-md ;
+  }
+  .cardbtn.redbtn{
+    @apply bg-red-500 text-white;
+  }
+  .cardbtn.bluebtn{
+    @apply bg-blue-500 text-white;
+  }
+  .cardbtn.greenbtn{
+    @apply bg-green-500 text-white;
+  }
 }

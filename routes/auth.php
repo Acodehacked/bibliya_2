@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/QuestionBank/{language}', [QuestionBankController::class, 'index']);
     Route::get('/Books/{language}', [BookController::class, 'index']);
+    Route::post('/Books/{language}', [BookController::class, 'table']);
+    Route::post('/Books/{language}/ActivateAll', [BookController::class, 'activateAll']);
+    Route::post('/Books/{language}/DeleteAll', [BookController::class, 'deleteAll']);
 
 
     Route::get('/categories', [QuestionCategoryController::class, 'index']);
